@@ -10,7 +10,7 @@ export function SwaggerConfigInit(app:INestApplication):void{
     .addBearerAuth(SwaggerAuthConfig(),"Authorization")
     .build()
     const swaggerDocument = SwaggerModule.createDocument(app,document)
-    SwaggerModule.setup("./swagger",app,swaggerDocument)
+    SwaggerModule.setup("/swagger",app,swaggerDocument)
 }
 
 function SwaggerAuthConfig():SecuritySchemeObject {
