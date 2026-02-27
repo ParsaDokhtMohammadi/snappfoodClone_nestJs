@@ -1,5 +1,6 @@
 import { ENTITY_NAMES } from "src/common/enum/EntityNames.enum";
 import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { UserAdressEntity } from "./address.entity";
 
 @Entity(ENTITY_NAMES.USER)
 export class UserEntity {
@@ -21,4 +22,7 @@ export class UserEntity {
     created_at:Date
     @UpdateDateColumn()
     updated_at:Date
+    @OneToMany(()=>UserAdressEntity , address=>address.user)
+    address : UserAdressEntity[]
+
 }
